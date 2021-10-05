@@ -18,7 +18,7 @@ namespace GoAndSee_API.Controllers
         public IHttpActionResult Post(Question question)
         {
             iquestion.createQuestion(question);
-            return Ok();
+            return Ok(question.QId);
         }
 
         public IHttpActionResult Put(Question question)

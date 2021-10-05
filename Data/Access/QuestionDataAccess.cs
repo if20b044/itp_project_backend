@@ -27,6 +27,7 @@ namespace GoAndSee_API.Data
 
                     dr.Close();
                     con.Close();
+                    question.QId = readQuestionId(question.Objectid);
                 }
             }
             catch (Exception ex)
@@ -149,7 +150,7 @@ namespace GoAndSee_API.Data
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Select* from Questions where lower(qoid)= @id  ", con);
+                    SqlCommand cmd = new SqlCommand("Select* from Questions where qoid= @id  ", con);
                     cmd.Parameters.AddWithValue("id", id);
                     SqlDataReader dr = cmd.ExecuteReader();
 

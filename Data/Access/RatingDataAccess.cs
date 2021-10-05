@@ -44,7 +44,8 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("Select rid,rsoid,rtimestamp from Ratings where rid=@Rid", con);
+
+                    SqlCommand cmd = new SqlCommand("Select r.rid,r.roid,r.rsoid, r.rtimestamp, o.oname, s.sname  from Ratings as r  inner join _Objects as o on o.oid = r.roid inner join Subobjects as s on r.rsoid = s._sid where r.rid=@Rid Order By r.rtimestamp Desc", con);
                     cmd.Parameters.AddWithValue("Rid", id);
 
                     con.Open();
@@ -56,7 +57,10 @@ namespace GoAndSee_API.Data.Access
                         while (dr.Read())
                         {
                             rating.Rid = dr["rid"].ToString();
+                            rating.Roname = dr["oname"].ToString();
+                            rating.Roid = dr["roid"].ToString();
                             rating.Rsid = dr["rsoid"].ToString();
+                            rating.Rsname = dr["sname"].ToString();
                             if (dr["rtimestamp"] != DBNull.Value)
                                 rating.Rtimestamp = (DateTime)dr["rtimestamp"];
                         }
@@ -67,7 +71,7 @@ namespace GoAndSee_API.Data.Access
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message);
             }
             return rating;
         }
@@ -81,7 +85,7 @@ namespace GoAndSee_API.Data.Access
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
 
-                    SqlCommand cmd = new SqlCommand("Select * From Ratings where ruserid=@user Order By rtimestamp Desc;", con);
+                    SqlCommand cmd = new SqlCommand("Select r.rid, r.roid,r.rsoid, r.rtimestamp, o.oname, s.sname  from Ratings as r  inner join _Objects as o on o.oid = r.roid inner join Subobjects as s on r.rsoid = s._sid where r.ruserid=@user Order By r.rtimestamp Desc", con);
                     cmd.Parameters.AddWithValue("user", user.activeUser());
 
                     con.Open();
@@ -93,7 +97,10 @@ namespace GoAndSee_API.Data.Access
                         while (dr.Read())
                         {
                             RatingDTO rating = new RatingDTO();
+                            rating.Roid = dr["roid"].ToString();
+                            rating.Roname = dr["oname"].ToString();
                             rating.Rsid = dr["rsoid"].ToString();
+                            rating.Rsname = dr["sname"].ToString();
                             rating.Rid = dr["rid"].ToString();
                             if (dr["rtimestamp"] != DBNull.Value)
                                 rating.Rtimestamp = (DateTime)dr["rtimestamp"];

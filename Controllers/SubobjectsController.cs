@@ -29,5 +29,12 @@ namespace GoAndSee_API.Controllers
             sobject.createSubobject(subobject);
             return Ok();
         }
+
+        public IHttpActionResult Put(Subobject subobject)
+        {
+            sobject.deleteSubobject(subobject.Sobjectid);
+            sobject.createSubobject(subobject);
+            return Ok();
+        }
     }
 }

@@ -41,5 +41,11 @@ namespace GoAndSee_API.Controllers
             iobject.deleteObject(id);
             return Ok();
         }
+
+        public IHttpActionResult Put(Object @object)
+        {
+            iobject.updateObject(@object);
+            return Ok();
+        }
     }
 }

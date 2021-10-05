@@ -8,12 +8,10 @@ namespace GoAndSee_API.Models
     {
         //[Key]
         public string Rid { get; set; }
-        [JsonProperty("subobjectid")]
+        [JsonProperty("rsoid")]
         public string Rsoid { get; set; }
-        [JsonProperty("objectid")]
+        [JsonProperty("roid")]
         public string Roid { get; set; }
-        //public string Ruserid { get; set; }
-        //public DateTime Rtime { get; set; }
         [JsonProperty("rating")]
         public string Rrating { get; set; }
     }

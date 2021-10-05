@@ -8,6 +8,7 @@ namespace GoAndSee_API.Data
     {
         ObjectDTO readObject(string id);
         List<ObjectListDTO> readAllObject();
+        string updateObject(Object @object);
         void deleteObject(string id);
         void createObject(Object @object);
         void updateLastModified(string id);

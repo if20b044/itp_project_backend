@@ -39,13 +39,44 @@ namespace GoAndSee_API.Data
                     con.Close();
                 }
                 readObjectId(@object);
-                CreateQuestion(@object);
+                Question question = CreateQuestion(@object);
+                iquestion.createQuestion(question);
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message);
                 System.Diagnostics.EventLog.WriteEntry("GoandSee", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
+        }
+
+        public string updateObject(Object @object)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
+                {
+                    SqlCommand cmd = new SqlCommand("Update  _Objects set oname = @objname, olastmod = GETDATE(), odescription = @objdescription, ointerval = @objinterval  where oid = @id", con);
+                    cmd.Parameters.AddWithValue("id", @object.Oid);
+                    cmd.Parameters.AddWithValue("objname", @object.Oname);
+                    cmd.Parameters.AddWithValue("objdescription", @object.Odescription);
+                    cmd.Parameters.AddWithValue("objinterval", @object.Ointerval);
+                    con.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    dr.Close();
+                    con.Close();
+
+                    Question question = CreateQuestion(@object);
+                    iquestion.updateQuestion(question);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message);
+            }
+            return @object.Oid;
         }
 
         public void updateLastModified(string id)
@@ -119,6 +150,7 @@ namespace GoAndSee_API.Data
                     con.Close();
 
                     iquestion.deleteObjectQuestion(id);
+                    isubobject.deleteSubobject(id);
                 }
             }
             catch (Exception ex)
@@ -134,8 +166,8 @@ namespace GoAndSee_API.Data
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT o.oid,o.olastmod, o.oname, o.odescription, o.ointerval,o.ouserid, o.otimestamp, q.qname FROM _Objects as o inner join Questions as q on o.oid = q.qoid where ouserid = @user", con);
-                    cmd.Parameters.AddWithValue("user", user.activeUser());
+                    SqlCommand cmd = new SqlCommand("SELECT o.oid,o.olastmod, o.oname, o.odescription, o.ointerval,o.ouserid, o.otimestamp, q.qname FROM _Objects as o inner join Questions as q on o.oid = q.qoid", con);
+                    //cmd.Parameters.AddWithValue("user", user.activeUser());
                     
                     con.Open();
 
@@ -251,14 +283,15 @@ namespace GoAndSee_API.Data
             return JsonConvert.SerializeObject(subinfo);
         }
 
-        public void CreateQuestion(Object @object)
+        public Question CreateQuestion(Object @object)
         {
             Question question = new Question();
             question.Objectid = @object.Oid;
             question.QName = @object.Oquestions;
             question.QUserid = @object.Ouserid;
             question.QContact = @object.Ocontact;
-            iquestion.createQuestion(question);
+         
+            return question;
         }
 
         public int countQuestions (string questions)

@@ -25,6 +25,7 @@ namespace GoAndSee_API.Controllers
 
         public RatingDTO Get(string id)
         {
+            
             RatingDTO ratingDTO = irating.readRating(id);
             ratingDTO.RQuestions = rprocess.prepareRatingAnswer(id);
 

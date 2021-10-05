@@ -13,14 +13,78 @@ namespace GoAndSee_API.Data
         UserAuth user = new UserAuth();
         public void createSubobject(Subobject subobject)
         {
+            List<string> snames = JsonConvert.DeserializeObject<List<string>>(subobject.Stitle);
+            for (int i = 0; i < snames.Count; ++i) {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
+                    {
+                        SqlCommand cmd = new SqlCommand("Insert into Subobjects (sname,soid,ouserid) values(@Sname,@Soid,@Suserid ) ", con);
+                        cmd.Parameters.AddWithValue("Sname", snames[i]);
+                        cmd.Parameters.AddWithValue("Soid", subobject.Sobjectid);
+                        cmd.Parameters.AddWithValue("Suserid", user.activeUser());
+
+                        con.Open();
+
+                        SqlDataReader dr = cmd.ExecuteReader();
+
+                        dr.Close();
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception: " + ex.Message);
+                }
+            }
+        }
+
+        public string readSubobjectId(string id, string name)
+        {
+            string sid = null;
             try
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("Insert into Subobjects (sname,soid,ouserid) values(@Sname,@Soid,@Suserid )", con);
-                    cmd.Parameters.AddWithValue("Sname", subobject.Stitle);
-                    cmd.Parameters.AddWithValue("Soid", subobject.Sobjectid);
-                    cmd.Parameters.AddWithValue("Suserid", user.activeUser());
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("Select * from Subobjects where soid=@id  and  sname=@name", con);
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("name", name);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            sid = dr["_sid"].ToString();
+                        }
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("No data found.");
+                    }
+
+                    dr.Close();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+            }
+            return sid;
+        } 
+
+        public void deleteSubobject(string id)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
+                {
+                    SqlCommand cmd = new SqlCommand("Delete from Subobjects where soid=@id", con);
+                    cmd.Parameters.AddWithValue("id", id);
 
                     con.Open();
 
@@ -34,11 +98,6 @@ namespace GoAndSee_API.Data
             {
                 Console.WriteLine("Exception: " + ex.Message);
             }
-        }
-
-        public void deleteSubobject(string id)
-        {
-            throw new NotImplementedException();
         }
 
         public List<string> readAllSubobjectsOId(string id)
@@ -74,21 +133,13 @@ namespace GoAndSee_API.Data
                     dr.Close();
                     con.Close();
 
-                    for(int i = 0; i < slist.Count; ++i)
-                    {
-                        List<string> processList = JsonConvert.DeserializeObject<List<string>>(slist[i]);
-                        for (int m = 0; m < processList.Count;++m)
-                        {
-                            namelist.Add(processList[m]);
-                        }
-                    }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception: " + ex.Message);
             }
-            return namelist;
+            return slist;
         }
 
         public List<Subobject> readAllSubobject()

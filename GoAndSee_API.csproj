@@ -57,6 +57,7 @@
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.5.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
@@ -188,6 +189,7 @@
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Controllers\SubobjectsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\Access\ObjectDataAccess.cs" />
     <Compile Include="Data\Access\QuestionDataAccess.cs" />
@@ -246,6 +248,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\Prod03.pubxml" />
+    <None Include="Properties\PublishProfiles\Prod04.pubxml" />
     <None Include="Properties\PublishProfiles\Prod05.pubxml" />
     <None Include="Properties\PublishProfiles\Prod06.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -272,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
