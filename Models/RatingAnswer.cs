@@ -4,8 +4,6 @@ namespace GoAndSee_API.Models
 {
     public class RatingAnswer
     {
-        //[JsonProperty("id")]
-        //public string Raquestionid { get; set; }
         public string Rarid { get; set; }
         public string Raquestion { get; set; }
         [JsonProperty("rating")]

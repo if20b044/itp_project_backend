@@ -44,7 +44,6 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-
                     SqlCommand cmd = new SqlCommand("Select r.rid,r.roid,r.rsoid, r.rtimestamp, o.oname, s.sname  from Ratings as r  inner join _Objects as o on o.oid = r.roid inner join Subobjects as s on r.rsoid = s._sid where r.rid=@Rid Order By r.rtimestamp Desc", con);
                     cmd.Parameters.AddWithValue("Rid", id);
 
@@ -84,7 +83,6 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-
                     SqlCommand cmd = new SqlCommand("Select r.rid, r.roid,r.rsoid, r.rtimestamp, o.oname, s.sname  from Ratings as r  inner join _Objects as o on o.oid = r.roid inner join Subobjects as s on r.rsoid = s._sid where r.ruserid=@user Order By r.rtimestamp Desc", con);
                     cmd.Parameters.AddWithValue("user", user.activeUser());
 
@@ -105,7 +103,6 @@ namespace GoAndSee_API.Data.Access
                             if (dr["rtimestamp"] != DBNull.Value)
                                 rating.Rtimestamp = (DateTime)dr["rtimestamp"];
                             rlist.Add(rating);
-
                         }
                     }
                     dr.Close();

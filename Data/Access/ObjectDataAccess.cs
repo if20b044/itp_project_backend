@@ -1,13 +1,11 @@
 ﻿using GoAndSee_API.Business;
 using GoAndSee_API.Models;
-using GoAndSee_API.Models.DTO;
 using GoAndSee_API.Models.DTO.Objects;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Object = GoAndSee_API.Models.Object;
-
 
 namespace GoAndSee_API.Data
 {
@@ -30,7 +28,6 @@ namespace GoAndSee_API.Data
                     cmd.Parameters.AddWithValue("Ointerval", @object.Ointerval);
                     cmd.Parameters.AddWithValue("Ouserid", user.activeUser());
 
-     
                     con.Open();
 
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -167,8 +164,6 @@ namespace GoAndSee_API.Data
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
                     SqlCommand cmd = new SqlCommand("SELECT o.oid,o.olastmod, o.oname, o.odescription, o.ointerval,o.ouserid, o.otimestamp, q.qname FROM _Objects as o inner join Questions as q on o.oid = q.qoid", con);
-                    //cmd.Parameters.AddWithValue("user", user.activeUser());
-                    
                     con.Open();
 
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -270,17 +265,8 @@ namespace GoAndSee_API.Data
         public string processSubobjects(string id)
         {
             List<string> subs = isubobject.readAllSubobjectsOId(id);
-            List<SubobjInfo> subinfo = new List<SubobjInfo>();
 
-
-            for (int i = 0; i < subs.Count; ++i)
-            {
-                SubobjInfo info = new SubobjInfo();
-                info.id = subs[i];
-                subinfo.Add(info);
-
-            }
-            return JsonConvert.SerializeObject(subinfo);
+            return JsonConvert.SerializeObject(subs);
         }
 
         public Question CreateQuestion(Object @object)

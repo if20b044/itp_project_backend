@@ -45,7 +45,7 @@ namespace GoAndSee_API.Controllers
         public IHttpActionResult Put(Object @object)
         {
             iobject.updateObject(@object);
-            return Ok();
+            return Ok(@object.Oid);
         }
     }
 }

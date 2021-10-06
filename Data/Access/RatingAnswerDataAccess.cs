@@ -118,6 +118,5 @@ namespace GoAndSee_API.Data.Access
             }
             return ralist;
         }
-
     }
 }

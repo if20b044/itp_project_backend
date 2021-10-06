@@ -10,10 +10,11 @@ namespace GoAndSee_API.Business
     public class Mail
     {
         IObjectDataAccess @object = new ObjectDataAccess();
+        ISubobjectDataAccess sobject = new SubobjectDataAccess();
         public void sendMail(Rating rating, string question, string email)
         {
             string objectname = @object.readObject(rating.Roid).Oname;
-            string subobjects = rating.Rsoid;
+            string subobject = sobject.readSubobjectsBySId(rating.Rsoid);
 
             MailMessage message = new MailMessage();
             message.IsBodyHtml = false;
@@ -23,7 +24,7 @@ namespace GoAndSee_API.Business
             message.From = message.Sender;
             message.To.Add(email);
             message.Subject = "Unzureichende Objektbewertung";
-            message.Body = String.Format("Objekt: {0} - {1} ist in einem inakzeptablen Zustand!\n {2} - Unzureichend\n", objectname, subobjects, question);
+            message.Body = String.Format("Objekt: {0} - {1}: {2} ist in einem inakzeptablen Zustand!\n {3} - Unzureichend\n", objectname, rating.Rsoid,subobject, question);
             // Global
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp-relay.gate01.skylines.global";

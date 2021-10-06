@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace GoAndSee_API.Models.DTO.Objects
+﻿namespace GoAndSee_API.Models.DTO.Objects
 {
     public class ObjInfo
     {

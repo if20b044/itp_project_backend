@@ -30,7 +30,6 @@ namespace GoAndSee_API.Business
                     mail.sendMail(rating, questionlist[i], contactlist[i]);               
                 }
                 irating.createRatingAnswer(ratinganswers[i]);
-
             }
         }
 

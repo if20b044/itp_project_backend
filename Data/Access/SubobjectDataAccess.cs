@@ -53,7 +53,6 @@ namespace GoAndSee_API.Data
 
                     SqlDataReader dr = cmd.ExecuteReader();
 
-
                     if (dr.HasRows)
                     {
                         while (dr.Read())

@@ -11,6 +11,5 @@ namespace GoAndSee_API.Controllers
         {
             return user.getUsername();
         }
-
     }
 }

@@ -184,13 +184,11 @@
     <Compile Include="Business\Mail.cs" />
     <Compile Include="Business\RatingAnswerProcessing.cs" />
     <Compile Include="Business\UserAuth.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ObjectsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Controllers\SubobjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\Access\ObjectDataAccess.cs" />
     <Compile Include="Data\Access\QuestionDataAccess.cs" />
     <Compile Include="Data\Access\RatingAnswerDataAccess.cs" />
@@ -210,7 +208,6 @@
     <Compile Include="Models\DTO\Objects\ObjectDTO.cs" />
     <Compile Include="Models\DTO\RatingAnswerDTO.cs" />
     <Compile Include="Models\DTO\RatingDTO.cs" />
-    <Compile Include="Models\DTO\SubobjInfo.cs" />
     <Compile Include="Models\Object.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Rating.cs" />

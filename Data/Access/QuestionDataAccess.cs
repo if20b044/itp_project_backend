@@ -43,7 +43,7 @@ namespace GoAndSee_API.Data
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from Questions where lower(qoid)= @id  ", con);
+                    SqlCommand cmd = new SqlCommand("Delete from Questions where qoid= @id  ", con);
                     cmd.Parameters.AddWithValue("id", id);
                     SqlDataReader dr = cmd.ExecuteReader();
 
@@ -135,11 +135,6 @@ namespace GoAndSee_API.Data
             {
                 Console.WriteLine("Exception: " + ex.Message);
             }
-        }
-
-        public List<Question> readAllQuestion()
-        {
-            throw new NotImplementedException();
         }
 
         public Question readQuestion(string id)
