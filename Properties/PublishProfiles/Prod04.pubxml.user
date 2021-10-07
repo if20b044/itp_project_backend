@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>\\vviedotnet04\c$\inetpub\wwwroot\App\goandseeAPI</_PublishTargetUrl>
-    <History>True|2021-10-05T09:58:36.5420725Z;True|2021-10-05T11:54:01.8976091+02:00;True|2021-10-05T11:21:39.3894238+02:00;True|2021-10-04T13:51:32.1159323+02:00;True|2021-10-04T11:11:13.5563272+02:00;True|2021-10-04T11:01:59.3894418+02:00;True|2021-10-04T10:56:40.4035031+02:00;True|2021-10-04T10:44:18.7607652+02:00;False|2021-10-04T10:40:10.3566904+02:00;True|2021-09-21T10:42:16.2899420+02:00;False|2021-09-20T15:47:23.2346175+02:00;False|2021-09-20T15:47:15.6499857+02:00;True|2021-09-20T11:56:41.2453636+02:00;False|2021-09-20T11:52:11.7579796+02:00;True|2021-09-17T14:01:37.4787908+02:00;True|2021-09-17T13:52:00.6269436+02:00;True|2021-09-17T13:48:24.7608383+02:00;True|2021-09-17T13:28:42.6662900+02:00;True|2021-09-17T13:16:33.0106225+02:00;</History>
+    <History>True|2021-10-07T13:12:43.5699628Z;True|2021-10-05T11:58:36.5420725+02:00;True|2021-10-05T11:54:01.8976091+02:00;True|2021-10-05T11:21:39.3894238+02:00;True|2021-10-04T13:51:32.1159323+02:00;True|2021-10-04T11:11:13.5563272+02:00;True|2021-10-04T11:01:59.3894418+02:00;True|2021-10-04T10:56:40.4035031+02:00;True|2021-10-04T10:44:18.7607652+02:00;False|2021-10-04T10:40:10.3566904+02:00;True|2021-09-21T10:42:16.2899420+02:00;False|2021-09-20T15:47:23.2346175+02:00;False|2021-09-20T15:47:15.6499857+02:00;True|2021-09-20T11:56:41.2453636+02:00;False|2021-09-20T11:52:11.7579796+02:00;True|2021-09-17T14:01:37.4787908+02:00;True|2021-09-17T13:52:00.6269436+02:00;True|2021-09-17T13:48:24.7608383+02:00;True|2021-09-17T13:28:42.6662900+02:00;True|2021-09-17T13:16:33.0106225+02:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -78,10 +78,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/GoAndSee_API.dll">
-      <publishTime>10/06/2021 13:13:54</publishTime>
+      <publishTime>10/07/2021 15:34:02</publishTime>
     </File>
     <File Include="bin/GoAndSee_API.pdb">
-      <publishTime>10/06/2021 13:13:54</publishTime>
+      <publishTime>10/07/2021 15:34:02</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNetCore.Http.Features.dll">
       <publishTime>08/24/2021 20:00:12</publishTime>
@@ -387,7 +387,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/15/2021 16:39:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/06/2021 13:13:54</publishTime>
+      <publishTime>10/07/2021 15:34:03</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -18,10 +18,12 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("Insert into Ratings (roid,ruserid,rsoid) values(@Roid,@Ruserid,@Rsoid)", con);
+                    SqlCommand cmd = new SqlCommand("Insert into Ratings (roid,ruserid,rsoid,roname,rsname) values(@Roid,@Ruserid,@Rsoid,@Roname,@Rsname)", con);
                     cmd.Parameters.AddWithValue("Roid", rating.Roid);
                     cmd.Parameters.AddWithValue("Ruserid", user.activeUser());
                     cmd.Parameters.AddWithValue("Rsoid", rating.Rsoid);
+                    cmd.Parameters.AddWithValue("Rsname", rating.Rsname);
+                    cmd.Parameters.AddWithValue("Roname", rating.Roname);
 
                     con.Open();
 
@@ -44,7 +46,7 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("Select r.rid,r.roid,r.rsoid, r.rtimestamp, o.oname, s.sname  from Ratings as r  inner join _Objects as o on o.oid = r.roid inner join Subobjects as s on r.rsoid = s._sid where r.rid=@Rid Order By r.rtimestamp Desc", con);
+                    SqlCommand cmd = new SqlCommand("Select rid,roid,rsoid, rtimestamp, roname, rsname  from Ratings where rid=@Rid Order By rtimestamp Desc", con);
                     cmd.Parameters.AddWithValue("Rid", id);
 
                     con.Open();
@@ -56,10 +58,10 @@ namespace GoAndSee_API.Data.Access
                         while (dr.Read())
                         {
                             rating.Rid = dr["rid"].ToString();
-                            rating.Roname = dr["oname"].ToString();
+                            rating.Roname = dr["roname"].ToString();
                             rating.Roid = dr["roid"].ToString();
                             rating.Rsid = dr["rsoid"].ToString();
-                            rating.Rsname = dr["sname"].ToString();
+                            rating.Rsname = dr["rsname"].ToString();
                             if (dr["rtimestamp"] != DBNull.Value)
                                 rating.Rtimestamp = (DateTime)dr["rtimestamp"];
                         }
@@ -83,7 +85,7 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("Select r.rid, r.roid,r.rsoid, r.rtimestamp, o.oname, s.sname  from Ratings as r  inner join _Objects as o on o.oid = r.roid inner join Subobjects as s on r.rsoid = s._sid where r.ruserid=@user Order By r.rtimestamp Desc", con);
+                    SqlCommand cmd = new SqlCommand("Select rid, roid,rsoid, rtimestamp, roname, rsname  from Ratings where ruserid=@user Order By rtimestamp Desc", con);
                     cmd.Parameters.AddWithValue("user", user.activeUser());
 
                     con.Open();
@@ -96,9 +98,9 @@ namespace GoAndSee_API.Data.Access
                         {
                             RatingDTO rating = new RatingDTO();
                             rating.Roid = dr["roid"].ToString();
-                            rating.Roname = dr["oname"].ToString();
+                            rating.Roname = dr["roname"].ToString();
                             rating.Rsid = dr["rsoid"].ToString();
-                            rating.Rsname = dr["sname"].ToString();
+                            rating.Rsname = dr["rsname"].ToString();
                             rating.Rid = dr["rid"].ToString();
                             if (dr["rtimestamp"] != DBNull.Value)
                                 rating.Rtimestamp = (DateTime)dr["rtimestamp"];

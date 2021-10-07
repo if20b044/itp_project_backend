@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>\\tvviedotnet02\c$\inetpub\wwwroot\Webservice\goandsee</_PublishTargetUrl>
-    <History>False|2021-10-05T07:28:53.2132573Z;True|2021-10-04T11:04:41.4136389+02:00;False|2021-10-04T11:03:53.0355709+02:00;True|2021-09-21T10:22:44.9093114+02:00;False|2021-09-21T10:21:43.7274972+02:00;False|2021-09-17T13:10:10.3900241+02:00;</History>
+    <History>True|2021-10-07T13:11:42.1483945Z;False|2021-10-05T09:28:53.2132573+02:00;True|2021-10-04T11:04:41.4136389+02:00;False|2021-10-04T11:03:53.0355709+02:00;True|2021-09-21T10:22:44.9093114+02:00;False|2021-09-21T10:21:43.7274972+02:00;False|2021-09-17T13:10:10.3900241+02:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -78,10 +78,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/GoAndSee_API.dll">
-      <publishTime>06/10/2021 11:18:55</publishTime>
+      <publishTime>10/07/2021 15:34:32</publishTime>
     </File>
     <File Include="bin/GoAndSee_API.pdb">
-      <publishTime>06/10/2021 11:18:55</publishTime>
+      <publishTime>10/07/2021 15:34:32</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNetCore.Http.Features.dll">
       <publishTime>08/24/2021 20:00:12</publishTime>
@@ -387,7 +387,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/15/2021 16:39:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/06/2021 12:26:55</publishTime>
+      <publishTime>10/07/2021 15:34:33</publishTime>
     </File>
   </ItemGroup>
 </Project>
