@@ -44,6 +44,7 @@ namespace GoAndSee_API.Controllers
 
         public IHttpActionResult Put(Object @object)
         {
+            System.Diagnostics.Debug.WriteLine(@object.Oid);
             iobject.updateObject(@object);
             return Ok(@object.Oid);
         }

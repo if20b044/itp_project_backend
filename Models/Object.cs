@@ -6,6 +6,7 @@ namespace GoAndSee_API.Models
     public class Object
     {
         [Key]
+        [JsonProperty("id")]
         public string Oid { get; set; }
         [JsonProperty("name")]
         public string Oname { get; set; }

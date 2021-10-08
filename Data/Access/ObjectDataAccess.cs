@@ -276,7 +276,8 @@ namespace GoAndSee_API.Data
             question.QName = @object.Oquestions;
             question.QUserid = @object.Ouserid;
             question.QContact = @object.Ocontact;
-         
+
+            System.Diagnostics.Debug.WriteLine("This:" + question.QContact);
             return question;
         }
 
