@@ -25,7 +25,7 @@ namespace GoAndSee_API.Business
                 ratinganswers[i].Rarid = rating.Rid;
                 ratinganswers[i].Raquestion = questionlist[i];
 
-                if (ratinganswers[i].Rarating == 0)
+                if (ratinganswers[i].Rarating == 0 && contactlist[i] !="")
                 {
                     mail.sendMail(rating, questionlist[i], contactlist[i]);               
                 }
