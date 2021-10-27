@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GoAndSee_API.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GoAndSee_API_AD_ActiveDirectoryLayer" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://webservice.one-intra.net/activedirectorylayer/ActiveDirectoryLayer.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

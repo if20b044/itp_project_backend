@@ -159,7 +159,8 @@ namespace GoAndSee_API.Data.Access
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("Select * from Ratings where roid=@Roid and ruserid=@Ruserid", con);
+                    SqlCommand cmd = new SqlCommand("Select Top(1) * from Ratings where roid=@Roid and ruserid=@Ruserid ORDER by rtimestamp desc", con);
+                    
                     cmd.Parameters.AddWithValue("Roid", rating.Roid);
                     cmd.Parameters.AddWithValue("Ruserid", user.activeUser());
 

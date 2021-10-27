@@ -18,5 +18,7 @@ namespace GoAndSee_API.Models.DTO.Objects
         public DateTime Ocreated { get; set; }
         [JsonProperty("createdBy")]
         public string Ouserid { get; set; }
+        [JsonProperty("lastrated")]
+        public DateTime OlastRated { get; set; }
     }
 }

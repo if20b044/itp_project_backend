@@ -163,7 +163,9 @@ namespace GoAndSee_API.Data
             {
                 using (SqlConnection con = new SqlConnection(dbcon.getDBConfiguration("default")))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT o.oid,o.olastmod, o.oname, o.odescription, o.ointerval,o.ouserid, o.otimestamp, q.qname FROM _Objects as o inner join Questions as q on o.oid = q.qoid", con);
+                    // SqlCommand cmd = new SqlCommand("SELECT o.oid,o.olastmod, o.oname, o.odescription, o.ointerval,o.ouserid, o.otimestamp, q.qname FROM _Objects as o inner join Questions as q on o.oid = q.qoid", con);
+                    SqlCommand cmd = new SqlCommand("SELECT o.oid,o.olastmod, o.oname, o.odescription, o.ointerval,o.ouserid, o.otimestamp, q.qname,(SELECT TOP (1) (rtimestamp) FROM ratings WHERE o.oid = ratings.roid ORDER BY rtimestamp DESC) as lastrated FROM _Objects as o inner join Questions as q on o.oid = q.qoid", con);
+
                     con.Open();
 
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -183,6 +185,8 @@ namespace GoAndSee_API.Data
                                 objectDTO.Ocreated = (DateTime)dr["otimestamp"];
                             if (dr["olastmod"] != DBNull.Value)
                                 objectDTO.OlastModified = (DateTime)dr["olastmod"];
+                            if (dr["lastrated"] != DBNull.Value)
+                                objectDTO.OlastRated = (DateTime)dr["lastrated"];
 
                             olist.Add(objectDTO);
                         }

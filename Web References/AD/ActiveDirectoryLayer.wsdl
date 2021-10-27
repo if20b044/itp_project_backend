@@ -1,0 +1,1549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservice.aua.com/ActiveDirectoryLayer" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webservice.aua.com/ActiveDirectoryLayer" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservice.aua.com/ActiveDirectoryLayer">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchUsersEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="sProperties" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchUsersExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchUsersExResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchGroupsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchVolumes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchVolumesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchVolumesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchComputers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchComputersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchComputersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchOrganizationalUnits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSearchScope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchOrganizationalUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchOrganizationalUnitsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSAMAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="bUserAccountControl" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsNewUser">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserWithDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSAMAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sAccountExpires" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="bUserAccountControl" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsNewUser">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserWithDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateUserWithDetailsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSAMAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="bGroupType" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsNewGroup">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateComputer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSAMAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="bUserAccountControl" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsNewComputer">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateComputerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateComputerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVolume">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVolume" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsNewVolume">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVolumeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVolumeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrganizationalUnit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOUName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsNewOrganizationalUnit">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrganizationalUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateOrganizationalUnitResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bUserAccountControl" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsUser">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bGroupType" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsGroup">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyComputer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bUserAccountControl" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsComputer">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyComputerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyComputerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyVolume">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsVolume">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyVolumeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyVolumeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyOrganizationalUnit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsOU">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyOrganizationalUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyOrganizationalUnitResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenameObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sObjectGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNewName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenameObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RenameObjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sObjectGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteObjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoveObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevelsObject" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonNameObject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevelsTarget" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoveObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MoveObjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetUserPasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUserGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sGroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUserGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListUserGroupsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOULevels" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCommonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sOldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeUserPasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sGroupGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserToGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUserToGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserFromGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sGroupGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserFromGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveUserFromGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserInGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sGroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserInGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUserInGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserInSubGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sGroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserInSubGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUserInSubGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationGroupHierarchy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDomain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sApplicationName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationGroupHierarchyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationGroupHierarchyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchUsers" />
+  </wsdl:message>
+  <wsdl:message name="SearchUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchUsersExSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchUsersEx" />
+  </wsdl:message>
+  <wsdl:message name="SearchUsersExSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchUsersExResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchGroups" />
+  </wsdl:message>
+  <wsdl:message name="SearchGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchVolumesSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchVolumes" />
+  </wsdl:message>
+  <wsdl:message name="SearchVolumesSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchVolumesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchComputersSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchComputers" />
+  </wsdl:message>
+  <wsdl:message name="SearchComputersSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchComputersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchOrganizationalUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchOrganizationalUnits" />
+  </wsdl:message>
+  <wsdl:message name="SearchOrganizationalUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchOrganizationalUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserWithDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUserWithDetails" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserWithDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserWithDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateGroup" />
+  </wsdl:message>
+  <wsdl:message name="CreateGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateComputerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateComputer" />
+  </wsdl:message>
+  <wsdl:message name="CreateComputerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateComputerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVolumeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVolume" />
+  </wsdl:message>
+  <wsdl:message name="CreateVolumeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVolumeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrganizationalUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOrganizationalUnit" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrganizationalUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOrganizationalUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyUser" />
+  </wsdl:message>
+  <wsdl:message name="ModifyUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyGroup" />
+  </wsdl:message>
+  <wsdl:message name="ModifyGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyComputerSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyComputer" />
+  </wsdl:message>
+  <wsdl:message name="ModifyComputerSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyComputerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyVolumeSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyVolume" />
+  </wsdl:message>
+  <wsdl:message name="ModifyVolumeSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyVolumeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyOrganizationalUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyOrganizationalUnit" />
+  </wsdl:message>
+  <wsdl:message name="ModifyOrganizationalUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyOrganizationalUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="RenameObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:RenameObject" />
+  </wsdl:message>
+  <wsdl:message name="RenameObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:RenameObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteObject" />
+  </wsdl:message>
+  <wsdl:message name="DeleteObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MoveObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:MoveObject" />
+  </wsdl:message>
+  <wsdl:message name="MoveObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:MoveObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListUserGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListUserGroups" />
+  </wsdl:message>
+  <wsdl:message name="ListUserGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListUserGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserToGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddUserToGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserFromGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserFromGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUserInGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUserInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IsUserInGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUserInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUserInSubGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUserInSubGroup" />
+  </wsdl:message>
+  <wsdl:message name="IsUserInSubGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUserInSubGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationGroupHierarchySoapIn">
+    <wsdl:part name="parameters" element="tns:GetApplicationGroupHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationGroupHierarchySoapOut">
+    <wsdl:part name="parameters" element="tns:GetApplicationGroupHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ActiveDirectoryLayerSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsers">
+      <wsdl:input message="tns:SearchUsersSoapIn" />
+      <wsdl:output message="tns:SearchUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersEx">
+      <wsdl:input message="tns:SearchUsersExSoapIn" />
+      <wsdl:output message="tns:SearchUsersExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchGroups">
+      <wsdl:input message="tns:SearchGroupsSoapIn" />
+      <wsdl:output message="tns:SearchGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchVolumes">
+      <wsdl:input message="tns:SearchVolumesSoapIn" />
+      <wsdl:output message="tns:SearchVolumesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchComputers">
+      <wsdl:input message="tns:SearchComputersSoapIn" />
+      <wsdl:output message="tns:SearchComputersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchOrganizationalUnits">
+      <wsdl:input message="tns:SearchOrganizationalUnitsSoapIn" />
+      <wsdl:output message="tns:SearchOrganizationalUnitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input message="tns:CreateUserSoapIn" />
+      <wsdl:output message="tns:CreateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserWithDetails">
+      <wsdl:input message="tns:CreateUserWithDetailsSoapIn" />
+      <wsdl:output message="tns:CreateUserWithDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input message="tns:CreateGroupSoapIn" />
+      <wsdl:output message="tns:CreateGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateComputer">
+      <wsdl:input message="tns:CreateComputerSoapIn" />
+      <wsdl:output message="tns:CreateComputerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVolume">
+      <wsdl:input message="tns:CreateVolumeSoapIn" />
+      <wsdl:output message="tns:CreateVolumeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganizationalUnit">
+      <wsdl:input message="tns:CreateOrganizationalUnitSoapIn" />
+      <wsdl:output message="tns:CreateOrganizationalUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUser">
+      <wsdl:input message="tns:ModifyUserSoapIn" />
+      <wsdl:output message="tns:ModifyUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyGroup">
+      <wsdl:input message="tns:ModifyGroupSoapIn" />
+      <wsdl:output message="tns:ModifyGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyComputer">
+      <wsdl:input message="tns:ModifyComputerSoapIn" />
+      <wsdl:output message="tns:ModifyComputerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVolume">
+      <wsdl:input message="tns:ModifyVolumeSoapIn" />
+      <wsdl:output message="tns:ModifyVolumeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOrganizationalUnit">
+      <wsdl:input message="tns:ModifyOrganizationalUnitSoapIn" />
+      <wsdl:output message="tns:ModifyOrganizationalUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RenameObject">
+      <wsdl:input message="tns:RenameObjectSoapIn" />
+      <wsdl:output message="tns:RenameObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteObject">
+      <wsdl:input message="tns:DeleteObjectSoapIn" />
+      <wsdl:output message="tns:DeleteObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveObject">
+      <wsdl:input message="tns:MoveObjectSoapIn" />
+      <wsdl:output message="tns:MoveObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPassword">
+      <wsdl:input message="tns:SetUserPasswordSoapIn" />
+      <wsdl:output message="tns:SetUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input message="tns:ValidateUserSoapIn" />
+      <wsdl:output message="tns:ValidateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListUserGroups">
+      <wsdl:input message="tns:ListUserGroupsSoapIn" />
+      <wsdl:output message="tns:ListUserGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input message="tns:ChangeUserPasswordSoapIn" />
+      <wsdl:output message="tns:ChangeUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <wsdl:input message="tns:AddUserToGroupSoapIn" />
+      <wsdl:output message="tns:AddUserToGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromGroup">
+      <wsdl:input message="tns:RemoveUserFromGroupSoapIn" />
+      <wsdl:output message="tns:RemoveUserFromGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInGroup">
+      <wsdl:input message="tns:IsUserInGroupSoapIn" />
+      <wsdl:output message="tns:IsUserInGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInSubGroup">
+      <wsdl:input message="tns:IsUserInSubGroupSoapIn" />
+      <wsdl:output message="tns:IsUserInSubGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationGroupHierarchy">
+      <wsdl:input message="tns:GetApplicationGroupHierarchySoapIn" />
+      <wsdl:output message="tns:GetApplicationGroupHierarchySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActiveDirectoryLayerSoap" type="tns:ActiveDirectoryLayerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsers">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersEx">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchUsersEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGroups">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchVolumes">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchVolumes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchComputers">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchComputers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOrganizationalUnits">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchOrganizationalUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserWithDetails">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateUserWithDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateComputer">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateComputer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVolume">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateVolume" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganizationalUnit">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateOrganizationalUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUser">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyGroup">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyComputer">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyComputer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVolume">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyVolume" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOrganizationalUnit">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyOrganizationalUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenameObject">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/RenameObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteObject">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/DeleteObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveObject">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/MoveObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPassword">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SetUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUserGroups">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ListUserGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/AddUserToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromGroup">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/RemoveUserFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInGroup">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/IsUserInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInSubGroup">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/IsUserInSubGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationGroupHierarchy">
+      <soap:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/GetApplicationGroupHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ActiveDirectoryLayerSoap12" type="tns:ActiveDirectoryLayerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsers">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersEx">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchUsersEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGroups">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchVolumes">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchVolumes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchComputers">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchComputers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOrganizationalUnits">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SearchOrganizationalUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserWithDetails">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateUserWithDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateComputer">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateComputer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVolume">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateVolume" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganizationalUnit">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/CreateOrganizationalUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUser">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyGroup">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyComputer">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyComputer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVolume">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyVolume" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOrganizationalUnit">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ModifyOrganizationalUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenameObject">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/RenameObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteObject">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/DeleteObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveObject">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/MoveObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPassword">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/SetUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUserGroups">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ListUserGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/AddUserToGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromGroup">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/RemoveUserFromGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInGroup">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/IsUserInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserInSubGroup">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/IsUserInSubGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationGroupHierarchy">
+      <soap12:operation soapAction="http://webservice.aua.com/ActiveDirectoryLayer/GetApplicationGroupHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActiveDirectoryLayer">
+    <wsdl:port name="ActiveDirectoryLayerSoap" binding="tns:ActiveDirectoryLayerSoap">
+      <soap:address location="https://webservice.one-intra.net/activedirectorylayer/ActiveDirectoryLayer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ActiveDirectoryLayerSoap12" binding="tns:ActiveDirectoryLayerSoap12">
+      <soap12:address location="https://webservice.one-intra.net/activedirectorylayer/ActiveDirectoryLayer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

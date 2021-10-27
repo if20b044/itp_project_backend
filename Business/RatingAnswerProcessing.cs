@@ -27,7 +27,7 @@ namespace GoAndSee_API.Business
 
                 if (ratinganswers[i].Rarating == 0 && contactlist[i] !="")
                 {
-                    mail.sendMail(rating, questionlist[i], contactlist[i]);               
+                    mail.sendMail(rating, questionlist[i], contactlist[i], ratinganswers[i].Racomment, ratinganswers[i].Raattachment, ratinganswers[i].Raimagetype);               
                 }
                 irating.createRatingAnswer(ratinganswers[i]);
             }
